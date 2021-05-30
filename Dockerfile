@@ -46,7 +46,7 @@ RUN set -xv;\
     docker-ce=5:20.10.3~3-0~ubuntu-focal \
     docker-ce-cli=5:20.10.3~3-0~ubuntu-focal \
     containerd.io=1.4.3-1 && \
-    sudo usermod -aG docker $(whoami) \
+    sudo usermod -aG docker $(whoami) && \
     sudo usermod -aG docker jenkins
 
 # Install Java for Jenkins

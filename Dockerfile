@@ -46,8 +46,7 @@ RUN set -xv;\
     docker-ce=5:20.10.3~3-0~ubuntu-focal \
     docker-ce-cli=5:20.10.3~3-0~ubuntu-focal \
     containerd.io=1.4.3-1 && \
-    sudo usermod -aG docker $(whoami) && \
-    sudo usermod -aG docker jenkins
+    sudo usermod -aG docker $(whoami)
 
 # Install Java for Jenkins
 RUN set -xv;\
@@ -58,7 +57,8 @@ RUN set -xv;\
     curl -fsSL https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add - && \
     add-apt-repository "deb [arch=amd64] https://pkg.jenkins.io/debian-stable binary/" && \
     apt-get update && \
-    apt-get install jenkins -y
+    apt-get install jenkins -y && \
+    sudo usermod -aG docker jenkins
 
 # Set Jenkins Port and HOME
 EXPOSE 8080/tcp
